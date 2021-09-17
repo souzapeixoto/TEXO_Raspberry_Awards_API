@@ -27,8 +27,6 @@ using Xunit;
 namespace Test__GoldenRaspberryAwards.TEXO_Raspberry_Awards_API.Controllers
 {
 
-    
-
     public class GoldenRaspberryAwardsControllerTest
     {
         public static IServiceProvider _serviceProvider { get; set; }

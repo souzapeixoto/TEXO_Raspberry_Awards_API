@@ -25,6 +25,10 @@ namespace TEXO_Raspberry_Awards_API.Controllers
             _logger = logger;
             _appServiceGoldenRaspberryAwards = appServiceGoldenRaspberryAwards;
         }
+        /// <summary>
+        /// Obtem o produtor com maior intervalo entre dois prêmios consecutivos, e o que
+        /// obteve dois prêmios mais rápido
+        /// </summary>
         [HttpGet]
         public async Task<ActionResult> Get()
         {
@@ -40,6 +44,9 @@ namespace TEXO_Raspberry_Awards_API.Controllers
 
             }
         }
+        /// <summary>
+        /// Exlui um filme da lista de acordo com o ID passado
+        /// </summary>
         [HttpDelete]
         [Route("{id:int}")]
         public async Task<ActionResult> Delete(int id)
@@ -57,7 +64,9 @@ namespace TEXO_Raspberry_Awards_API.Controllers
 
             }
         }
-
+        /// <summary>
+        /// Lista todos os produtores
+        /// </summary>
         [HttpGet]
         [Route("Producers")]
         public async Task<ActionResult> Producers()
@@ -84,7 +93,9 @@ namespace TEXO_Raspberry_Awards_API.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Lista todos os filmes
+        /// </summary>
         [HttpGet]
         [Route("Movies")]
         public async Task<ActionResult> Movies()
@@ -103,7 +114,9 @@ namespace TEXO_Raspberry_Awards_API.Controllers
 
             }
         }
-
+        /// <summary>
+        /// Lista todos os estudios
+        /// </summary>
         [HttpGet]
         [Route("Studios")]
         public async Task<ActionResult> Studios()

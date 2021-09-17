@@ -10,6 +10,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
+using System;
+using System.IO;
+using System.Reflection;
 
 namespace TEXO_Raspberry_Awards_API
 {
@@ -30,7 +33,10 @@ namespace TEXO_Raspberry_Awards_API
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "API Golden Raspberry Awards", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "API Golden Raspberry Awards", Version = "v1", Description=".Net core 5 Api" });
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
             });
 
             services.AddDbContext<ApplicationDbContext>(
@@ -38,8 +44,6 @@ namespace TEXO_Raspberry_Awards_API
                 {
                     options.UseInMemoryDatabase(Configuration.GetConnectionString("DefaultConnection"));
                 }
-                
-
             );
 
 
